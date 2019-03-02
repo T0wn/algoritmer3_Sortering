@@ -29,6 +29,8 @@ public class Main {
                 randomNummbers[i] = ran.nextInt(antallTall * 2);
             }
             printArray(randomNummbers);
+            Sorter.quickSort(randomNummbers, 0, randomNummbers.length - 1);
+            printArray(randomNummbers);
 
         }
     }
