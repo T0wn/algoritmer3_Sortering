@@ -21,21 +21,21 @@ public class Sorter {
 
 
 
-    public static void quickSort(int[] array, int start, int stop) {
+    public static void quickSort(int[] array, int start, int end) {
         int partitionIndex;
 
-        if (stop - start > 0) {
-            partitionIndex = partition(array, start, stop);
+        if (end - start > 0) {
+            partitionIndex = partition(array, start, end);
             quickSort(array, start, partitionIndex - 1);
-            quickSort(array, partitionIndex + 1, stop);
+            quickSort(array, partitionIndex + 1, end);
         }
     }
 
-    private  static int partition(int[] array, int start, int stop) {
+    private  static int partition(int[] array, int start, int end) {
         int compareTall = array[start];
 
         int left = start;
-        int right = stop;
+        int right = end;
         int temp;
 
         while (left < right) {
@@ -60,7 +60,48 @@ public class Sorter {
 
 
 
-    public static void mergeSort(int[] array) {
+    public static void mergeSort(int[] array, int start, int end) {
+
+        if (start == end)
+            return;
+
+        int arraySize = end - start + 1;
+        int[] temp = new int[arraySize];
+        int mid = (end + start) / 2;
+
+        mergeSort(array, start, mid);
+        mergeSort(array, mid + 1, end);
+
+        for (int i = 0; i < arraySize; i++) {
+            temp[i] = array[start + i];
+        }
+
+        int left = 0;
+        int right = mid - start + 1;
+        for (int i = 0; i < arraySize; i++) {
+            if (right <= end - start) {
+                if (left <= mid - start) {
+                    if (temp[left] > temp[right]) {
+                        array[i + start] = temp[right++];
+                    }
+                    else {
+                        array[i + start] = temp[left++];
+                    }
+                }
+                else {
+                    array[i + start] = temp[right++];
+                }
+            }
+            else {
+                array[i + start] = temp[left++];
+            }
+        }
+
+    }
+
+
+
+    public static void radixSort(int[] array) {
 
     }
 
