@@ -27,6 +27,7 @@ public class Main {
             for (int i = 0; i < Integer.parseInt(args[0]); i++) {
                 randomNummbers[i] = ran.nextInt(2 * intArgs[0]);
             }
+            printArray(randomNummbers);
 
 
             // sjekker hvilken test som skal utføres

@@ -1,4 +1,6 @@
-import java.util.Queue;
+
+import java.util.LinkedList;
+
 
 public class Sorter {
 
@@ -104,8 +106,27 @@ public class Sorter {
 
 
     public static void radixSort(int[] array, int maxValue) {
+        LinkedList<Integer>[] digitQueues = (LinkedList<Integer>[]) (new LinkedList[10]);
+        for (int digitVal = 0; digitVal <= 9; digitVal++)
+            digitQueues[digitVal] = new LinkedList<Integer>();
+
+        for (int num : array) {
+            String char_num = Integer.toString(num);
+            int digit = Integer.parseInt(char_num.substring(char_num.length() - 1));
+            digitQueues[digit].add(num);
+        }
+
+        // printer alle køene
+        for (int i = 0; i < digitQueues.length; i++) {
+            System.out.println(i + ": " + digitQueues[i]);
+        }
+        int size = digitQueues[0].size();
+        for (int i = 0; i < size; i++) {
+            System.out.println(digitQueues[0].poll());
+        }
 
     }
+
 
 
 
