@@ -120,6 +120,7 @@ public class Sorter {
 
             // looper gjennom hele arrayen
             for (int scan = 0; scan < array.length; scan++) {
+
                 String temp = String.valueOf(array[scan]);
 
                 // Sjekker at det er et siffer på den posisjonen loopen er på.
@@ -145,6 +146,7 @@ public class Sorter {
                     num++;
                 }
             }
+
         }
 
     }

@@ -27,13 +27,12 @@ public class Main {
             for (int i = 0; i < Integer.parseInt(args[0]); i++) {
                 randomNummbers[i] = ran.nextInt(2 * intArgs[0]);
             }
-            printArray(randomNummbers);
 
 
-            // sjekker hvilken test som skal utføres
+            // Utfører sorteringen og gir tiden den bruker.
             if (intArgs[2] == 1) {
 
-                long startTime = System.nanoTime();
+                long startTime = System.currentTimeMillis();
 
                 // velger sorteringsalgoritme og sorterer arrayen
                 switch (intArgs[1]) {
@@ -58,19 +57,29 @@ public class Main {
                 }
 
                 // regner og skriver ut tidsbruket til sorteringsalgoritmen.
-                long endTime = System.nanoTime();
-                long timeUsed = (endTime - startTime) / 1000000;
+                long endTime = System.currentTimeMillis();
+                long timeUsed = endTime - startTime;
                 System.out.println("Sorteringen tar: " + timeUsed + " milisek");
 
             }
-
+            // Estimering av verdien C
             else if (intArgs[2] == 2) {
+                int[] n_save;
+                long[] time_save;
+                float[] C_save;
+                for (int n = 1000; n < 10000; n += 1000) {
+                    int[] a = new int[n];
+                    long time;
 
+                    for (int i = 0; i < n; i++) {
+                        a[i] =
+                    }
+                }
             }
-
             else {
                 System.out.println("Error! Parameter nr.3 må være enten 1 eller 2");
             }
+
 
         }
 
