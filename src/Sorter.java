@@ -112,29 +112,31 @@ public class Sorter {
         for (int digitVal = 0; digitVal <= 9; digitVal++)
             digitQueues[digitVal] = new LinkedList<Integer>();
 
+        // antall siffer ( minus 1, siden det starter på 0 )
+        int max_digit = Integer.toString(maxValue).length() - 1;
 
+        // for hvert siffer
+        for (int position = 0; position <= max_digit; position++) {
 
-        int max_digits = Integer.toString(maxValue).length();
-
-        for (int position = 0; position <= max_digits; position++) {
-
+            // looper gjennom hele arrayen
             for (int scan = 0; scan < array.length; scan++) {
                 String temp = String.valueOf(array[scan]);
-                if (max_digits-position < temp.length()) {
-                    int digit = Character.digit (temp.charAt(max_digits-position), 10);
+
+                // Sjekker at det er et siffer på den posisjonen loopen er på.
+                // F.eks tallet 8 har ikke noe siffer 10'er posisjonen, og da telles det som 0.
+                if (max_digit - (max_digit-position) <= temp.length() - 1) {
+                    // Legger tallet inn i køen som hører til sifferet på den nåværende posisjonen.
+                    int digit = Character.digit (temp.charAt((temp.length() - 1)-position), 10);
                     digitQueues[digit].add(new Integer(array[scan]));
                 }
+                // Hvis det mangler siffer på posisjonen legges tallet til i 0 køen
                 else {
                     digitQueues[0].add(new Integer(array[scan]));
                 }
 
             }
 
-            // printer alle køene
-            for (int i = 0; i < digitQueues.length; i++) {
-                System.out.println(i + ": " + digitQueues[i]);
-            }
-
+            // Putter tallene inn i arrayen igjen.
             int num = 0;
             for (int digitVal = 0; digitVal <= 9; digitVal++) {
 
@@ -143,7 +145,6 @@ public class Sorter {
                     num++;
                 }
             }
-            Main.printArray(array);
         }
 
     }
