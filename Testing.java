@@ -3,6 +3,10 @@ import java.util.Random;
 public class Testing {
     public static void main(String args[])
     {
+        Main.printArray(Main.fyllArray(20, 40));
+    }
+
+    public static void testing() {
         Random r = new Random();
 
         for (int n = 1000; n <= 10000; n += 1000)
