@@ -108,8 +108,7 @@ public class Main {
                 }
 
 
-                System.out.println("n: " + n + "\tt: " + time + "ms \tC: " + C);
-                System.out.println("Time estimated to sort array of size " + intArgs[0] + ": " + (intArgs[0] * n));
+                System.out.println("n: " + n + "\tt: " + time + "ms  \tC: " + C);
 
 
             }
