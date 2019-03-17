@@ -4,6 +4,16 @@ import java.util.Random;
 public class Main {
 
 
+    public static int[] fyllArray(int length, int highestVal) {
+        Random ran = new Random();
+        int[] array = new int[length];
+        for (int i = 0; i < length; i++) {
+            array[i] = ran.nextInt(highestVal);
+        }
+        return array;
+    }
+
+
     public static void main(String[] args) {
 
         // sjekker at antall parametere er riktig
@@ -130,21 +140,5 @@ public class Main {
 
     }
 
-    public static void printArray(int[] array) {
-        System.out.print("[");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + ", ");
-        }
-        System.out.println("]");
-    }
-
-    public static int[] fyllArray(int length, int highestVal) {
-        Random ran = new Random();
-        int[] array = new int[length];
-        for (int i = 0; i < length; i++) {
-            array[i] = ran.nextInt(highestVal);
-        }
-        return array;
-    }
 
 }
