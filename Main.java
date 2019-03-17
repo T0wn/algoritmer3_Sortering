@@ -4,7 +4,7 @@ import java.util.Random;
 public class Main {
 
 
-    public static int[] fyllArray(int length, int highestVal) {
+    private static int[] fyllArray(int length, int highestVal) {
         Random ran = new Random();
         int[] array = new int[length];
         for (int i = 0; i < length; i++) {
@@ -22,7 +22,7 @@ public class Main {
                     "Feil antall parametere. Krever 3 parametere hvor " +
                     "\n1. Antall tall som skal sorteres." +
                     "\n2. Hvilken sorteringsmetode som skal brukes. ( 1 = insertion, 2 = quicksort, 3 = mergesort, 4 = radixsort )" +
-                    "\n3. Hvilken test av sorteringsmetoden som skal utføres."
+                    "\n3. Hvilken test av sorteringsmetoden som skal utføres. ( 1 = kjøretid, 2 = estimering )"
             );
             return;
         }
@@ -130,7 +130,7 @@ public class Main {
             }
             C_avg /= C_save.size();
 
-            System.out.println("\nC average: " + C_avg);
+            System.out.println("\nC average: " + C_avg + "\n");
 
         }
         else {

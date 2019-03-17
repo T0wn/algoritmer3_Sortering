@@ -127,11 +127,11 @@ public class Sorter {
                 if (max_digit - (max_digit-position) <= temp.length() - 1) {
                     // Legger tallet inn i køen som hører til sifferet på den nåværende posisjonen.
                     int digit = Character.digit (temp.charAt((temp.length() - 1)-position), 10);
-                    digitQueues[digit].add(new Integer(array[scan]));
+                    digitQueues[digit].add(array[scan]);
                 }
                 // Hvis det mangler siffer på posisjonen legges tallet til i 0 køen
                 else {
-                    digitQueues[0].add(new Integer(array[scan]));
+                    digitQueues[0].add(array[scan]);
                 }
 
             }
